@@ -1,0 +1,7 @@
+echo "node_modules/" >> .gitignore
+echo "fastapi-backend/__pycache__/" >> .gitignore
+echo ".venv/" >> .gitignore
+echo "next-frontend/.next/" >> .gitignore
+echo "next-frontend/.turbo/" >> .gitignore
+echo "docker-compose.override.yml" >> .gitignore
+echo "*.env" >> .gitignore
