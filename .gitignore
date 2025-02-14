@@ -1,9 +1,9 @@
 node_modules/
-fastapi-backend/__pycache__/
-fastapi-backend/alembic/__pycache__/
 .venv/
 next-frontend/.next/
 next-frontend/.turbo/
 docker-compose.override.yml
 *.env
 __pycache__/
+fastapi-backend/__pycache__/
+fastapi-backend/alembic/__pycache__/
