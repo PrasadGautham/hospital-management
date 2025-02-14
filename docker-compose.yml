@@ -7,9 +7,14 @@ services:
       - "8000:8000"
     volumes:
       - ./fastapi-backend:/app
+    depends_on:
+      - db
     environment:
       - PYTHONUNBUFFERED=1
     restart: always
+    command: ["/bin/sh", "-c", "alembic upgrade head && uvicorn main:app --host 0.0.0.0 --port 8000 --reload"]
+    # command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+
 
   frontend:
     build: ./next-frontend
@@ -18,6 +23,20 @@ services:
     volumes:
       - ./next-frontend:/app
       - /app/node_modules  # Preserve node_modules inside the container
+      - /app/.next  # Prevent `.next` from being a slow bind mount
     depends_on:
-      - backend
+      - backend # we could remove this so the frontend works well even without backend
     restart: always
+  db:
+    image: postgres:15  # No Dockerfile needed, pulls from Docker Hub
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=hospitaldb
+    restart: always
+volumes:
+  db-data:
