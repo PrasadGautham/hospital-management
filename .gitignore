@@ -1,10 +1,9 @@
-echo "node_modules/" >> .gitignore
-echo "fastapi-backend/__pycache__/" >> .gitignore
-echo ".venv/" >> .gitignore
-echo "next-frontend/.next/" >> .gitignore
-echo "next-frontend/.turbo/" >> .gitignore
-echo "docker-compose.override.yml" >> .gitignore
-echo "*.env" >> .gitignore
-echo "__pycache__" >> .gitignore
+node_modules/
 fastapi-backend/__pycache__/
 fastapi-backend/alembic/__pycache__/
+.venv/
+next-frontend/.next/
+next-frontend/.turbo/
+docker-compose.override.yml
+*.env
+__pycache__/
