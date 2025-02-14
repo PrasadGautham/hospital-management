@@ -6,3 +6,5 @@ echo "next-frontend/.turbo/" >> .gitignore
 echo "docker-compose.override.yml" >> .gitignore
 echo "*.env" >> .gitignore
 echo "__pycache__" >> .gitignore
+fastapi-backend/__pycache__/
+fastapi-backend/alembic/__pycache__/
