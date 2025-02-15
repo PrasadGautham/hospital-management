@@ -109,3 +109,8 @@ Now, without any manual Alembic setup inside the container, simply run:
 
 docker-compose up --build
 ✅ Alembic will run automatically when the backend starts, applying migrations.
+
+
+DO THE FOLLOWING IF YOU SEE DEPENDENCY ISSUES:
+docker-compose down -v  # Removes all volumes, including node_modules
+docker-compose up --build  # Fully rebuilds the container
