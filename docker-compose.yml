@@ -17,16 +17,20 @@ services:
 
 
   frontend:
-    build: ./next-frontend
+    build: ./next-frontend  # Correct build context
     ports:
       - "3000:3000"
     volumes:
       - ./next-frontend:/app
       - /app/node_modules  # Preserve node_modules inside the container
-      - /app/.next  # Prevent `.next` from being a slow bind mount
+      # - /app/.next  # Prevent `.next` from being a slow bind mount
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
     depends_on:
       - backend # we could remove this so the frontend works well even without backend
     restart: always
+    command: ["npm", "run", "dev"]
   db:
     image: postgres:15  # No Dockerfile needed, pulls from Docker Hub
     ports:

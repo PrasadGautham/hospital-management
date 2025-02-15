@@ -3,6 +3,8 @@
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import theme from "./theme";
+import Navbar from "./Navbar";
+
 
 export default function RootLayout({ children }) {
   return (
@@ -11,6 +13,7 @@ export default function RootLayout({ children }) {
       <body>
         <ThemeProvider theme={theme}>
           <CssBaseline />
+          <Navbar />
           {children}
         </ThemeProvider>
       </body>
